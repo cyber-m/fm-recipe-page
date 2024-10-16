@@ -45,11 +45,9 @@ a {
 body {
   /* display: flex;
   flex-direction: column; */
-  padding: var(--size-200);
+  --bp-tablet: 800px;
   background-color: var(--color-stone-100);
-  @media (max-width: 480px) {
-    padding: 0;
-  }
+  padding: min(calc(var(--size-100) * 15), calc(100vw - 738px));
 }
 .main-container {
   max-width: 100%;
@@ -73,8 +71,10 @@ body {
       width: 100%;
     }
   }
-  @media (max-width: 480px) {
+  @media (max-width: 736px) {
     border-radius: 0;
+  }
+  @media (max-width: 480px) {
     .recipe-image {
       padding: 0;
       img {
@@ -114,22 +114,22 @@ body {
     }
 
     ul {
-      list-style-type: none; /* Remove default bullets */
-      padding-left: 0; /* Remove default padding */
+      list-style-type: none;
+      padding-left: 0;
 
       li {
-        position: relative; /* Position relative for pseudo-element */
-        padding-left: 25px; /* Space for custom bullet */
+        position: relative;
+        padding-left: var(--size-300);
       }
 
       li::before {
-        content: ""; /* Empty content for the bullet */
-        position: absolute; /* Absolute positioning */
-        left: 0; /* Align to the left */
-        top: 50%; /* Center vertically */
-        transform: translateY(-50%); /* Adjust vertical alignment */
-        width: var(--size-50); /* Bullet width */
-        height: var(--size-50); /* Bullet height */
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: var(--size-50);
+        height: var(--size-50);
         background-color: var(--color-brown-800);
         border-radius: 50%;
       }
@@ -182,7 +182,7 @@ body {
       li {
         counter-increment: custom-counter; /* Increment counter */
         display: flex;
-        gap: var(--size-200);
+        gap: var(--size-300);
       }
 
       li::before {
